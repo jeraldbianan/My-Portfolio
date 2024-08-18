@@ -1,9 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  prefix: 'tw-',
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    './node_modules/quasar/src/**/*.{js,ts,vue}',
+    './node_modules/quasar/src/**/*.sass',
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'bebas-neue': ['"Bebas Neue"', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
