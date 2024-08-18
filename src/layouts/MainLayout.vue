@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import MainHeader from './MainHeader.vue';
+</script>
 
 <template>
-  <q-layout view="hHh lpR ffr">
-    <!-- Navigation -->
+  <q-layout view="hHh lpR fff">
+    <MainHeader />
 
     <q-page-container>
       <router-view v-slot="{ Component }">
@@ -11,8 +13,6 @@
         </transition>
       </router-view>
     </q-page-container>
-
-    <!-- Footer -->
   </q-layout>
 </template>
 
