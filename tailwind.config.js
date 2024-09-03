@@ -11,12 +11,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blue: '#0BBEF2',
+        'main-blue': '#0BBEF2',
         'dark-blue': '#324162',
-        grey: '#697694',
+        'main-grey': '#697694',
         'dark-grey': '#3C4862',
-        yellow: '#FFB200',
-        white: '#F5F7FA',
+        'main-yellow': '#FFB200',
+        'main-white': '#F5F7FA',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
