@@ -12,6 +12,11 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
+      container: {
+        screens: {
+          main: '1160px',
+        },
+      },
     },
   },
   plugins: [],
