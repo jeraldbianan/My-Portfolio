@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import MainHeader from './MainHeader.vue';
+import HeroSection from 'src/components/HomePage/HeroSection.vue';
+import NavigationBar from './NavigationBar.vue';
 </script>
 
 <template>
-  <q-layout view="hHh lpR fff">
-    <MainHeader />
+  <q-layout view="hhh lpR ffr">
+    <NavigationBar />
+    <HeroSection />
 
     <q-page-container>
       <router-view v-slot="{ Component }">
