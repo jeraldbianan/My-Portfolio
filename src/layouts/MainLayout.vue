@@ -8,7 +8,7 @@ import NavigationBar from './NavigationBar.vue';
     <NavigationBar />
     <HeroSection />
 
-    <q-page-container>
+    <q-page-container class="!p-0">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
