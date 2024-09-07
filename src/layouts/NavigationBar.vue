@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import DarkModeToggle from 'src/components/UI/DarkModeToggle.vue';
-import NavigationLinks from './MainHeader/NavigationLinks.vue';
+import NavigationLinks from './NavigationBar/NavigationLinks.vue';
 </script>
 
 <style lang="scss" scoped></style>
