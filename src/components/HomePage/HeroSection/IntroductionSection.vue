@@ -23,6 +23,7 @@
         :key="3"
         unelevated
         class="mt-10 h-16 w-full max-w-[270px] bg-main-blue font-roboto text-lg font-medium normal-case transition hover:bg-main-blue/80"
+        @click="scrollToSection('myProjects')"
       >
         View Latest Projects
       </q-btn>
@@ -32,6 +33,9 @@
 
 <script setup lang="ts">
 import gsap from 'gsap';
+import { useScrollToSection } from 'src/composables/useScrollToSection';
+
+const { scrollToSection } = useScrollToSection();
 
 const beforeEnter = (el: Element) => {
   const element = el as HTMLElement;
