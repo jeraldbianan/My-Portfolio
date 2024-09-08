@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import HeroSection from 'src/components/HomePage/HeroSection.vue';
-import NavigationBar from './NavigationBar.vue';
-</script>
-
 <template>
   <q-layout view="hhh lpR ffr">
     <NavigationBar />
@@ -15,7 +10,18 @@ import NavigationBar from './NavigationBar.vue';
         </transition>
       </router-view>
     </q-page-container>
+
+    <FooterSection v-if="route.name === 'Name'" />
   </q-layout>
 </template>
+
+<script setup lang="ts">
+import HeroSection from 'src/components/HomePage/HeroSection.vue';
+import NavigationBar from './NavigationBar.vue';
+import FooterSection from './FooterSection.vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+</script>
 
 <style scoped></style>
