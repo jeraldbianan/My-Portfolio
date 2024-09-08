@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useScrollToSection } from 'src/composables/useScrollToSection';
 import { ref } from 'vue';
+
+const { scrollToSection } = useScrollToSection();
 
 const links = ref([
   {
@@ -25,6 +28,7 @@ const links = ref([
     <q-btn
       unelevated
       class="h-[42px] w-[105px] bg-white/20 normal-case text-main-white"
+      @click="scrollToSection('callToAction')"
       >Contact</q-btn
     >
   </div>

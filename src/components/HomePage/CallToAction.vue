@@ -54,9 +54,13 @@ import { useDarkMode } from 'src/composables/useDarkMode';
 
 import { callToActionContacts } from 'src/data/callToActionContacts';
 
+import { useScrollToSection } from 'src/composables/useScrollToSection';
+
+const { components } = useScrollToSection();
+const { callToAction } = components;
+
 gsap.registerPlugin(ScrollTrigger);
 
-const callToAction = ref(null);
 const { darkMode } = useDarkMode();
 const filteredContacts = ref();
 

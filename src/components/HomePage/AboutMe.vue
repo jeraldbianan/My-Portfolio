@@ -9,7 +9,7 @@
 
       <div ref="aboutMe" class="mt-[90px] flex w-full justify-between">
         <div
-          class="slide-right flex w-full max-w-[567px] flex-col gap-8 font-roboto text-2xl font-normal leading-[145.8%] text-main-grey dark:text-main-white"
+          class="intro flex w-full max-w-[567px] flex-col gap-8 font-roboto text-2xl font-normal leading-[145.8%] text-main-grey dark:text-main-white"
         >
           <p>
             In front-end web development I have 2+ years of experience, I
@@ -21,7 +21,7 @@
             create intuitive and engaging user interfaces.
           </p>
         </div>
-        <TechnologiesComponent class="slide-left" />
+        <TechnologiesComponent class="techonologies" />
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@ const aboutMe = ref(null);
 
 onMounted(() => {
   gsap.fromTo(
-    '.slide-left',
+    '.techonologies',
     {
       x: 100,
       opacity: 0,
@@ -58,7 +58,7 @@ onMounted(() => {
     },
   );
   gsap.fromTo(
-    '.slide-right',
+    '.intro',
     {
       x: -100,
       opacity: 0,
