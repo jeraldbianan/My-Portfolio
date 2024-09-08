@@ -1,7 +1,7 @@
 <template>
   <section
     ref="projectsSection"
-    class="projects-section flex w-full max-w-full flex-col gap-y-[90px]"
+    class="flex w-full max-w-full flex-col gap-y-[90px]"
   >
     <div
       v-for="(project, index) in slicedProjects"
