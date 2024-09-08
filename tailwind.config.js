@@ -25,6 +25,9 @@ module.exports = {
       maxWidth: {
         container: '1160px',
       },
+      boxShadow: {
+        bigShadow: '0 15px 35px 0 rgba(39, 44, 47, 0.1)',
+      },
     },
   },
   plugins: [],
