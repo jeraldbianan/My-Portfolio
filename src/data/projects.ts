@@ -9,4 +9,14 @@ export const projects = [
     technologies: ['javascript', 'vue', 'quasar', 'typescript'],
     url: 'https://jb-blogs.netlify.app/',
   },
+  {
+    id: 2,
+    title: 'Chitchat',
+    image: 'chitchat.jpg',
+    mobileImg: 'chitchat-mobile.png',
+    description:
+      'A simple responsive landing page of a Chat Application Designed in Figma and Developed in Webflow',
+    technologies: ['figma', 'webflow'],
+    url: 'https://jerald-chitchat-app.webflow.io/',
+  },
 ];
