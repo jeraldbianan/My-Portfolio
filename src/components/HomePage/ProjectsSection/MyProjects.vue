@@ -73,7 +73,7 @@ onMounted(() => {
       x: 0,
       opacity: 1,
       duration: 1,
-      stagger: 0.3,
+      stagger: 0,
       scrollTrigger: {
         trigger: projectsSection.value,
         start: 'top 80%',
@@ -92,7 +92,7 @@ onMounted(() => {
       x: 0,
       opacity: 1,
       duration: 1,
-      stagger: 0.3,
+      stagger: 0,
       scrollTrigger: {
         trigger: projectsSection.value,
         start: 'top 80%',
