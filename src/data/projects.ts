@@ -19,4 +19,24 @@ export const projects = [
     technologies: ['figma', 'webflow'],
     url: 'https://jerald-chitchat-app.webflow.io/',
   },
+  {
+    id: 3,
+    title: 'Runners',
+    image: 'runners.jpg',
+    mobileImg: 'runners-mobile.png',
+    description:
+      'A web application developed using VueJS and Quasar Framework in the front-end for a start up company in South Korea called RUNNERS.',
+    technologies: ['javascript', 'vue', 'quasar', 'typescript', 'tailwind'],
+    url: 'https://runners.im/main',
+  },
+  {
+    id: 4,
+    title: 'Enabletoon',
+    image: 'enabletoon.jpg',
+    mobileImg: '',
+    description:
+      'A web application developed using VueJS and the Quasar Framework in the front-end, originally based on https://www.enabletoon.com/.',
+    technologies: ['javascript', 'vue', 'quasar', 'typescript', 'tailwind'],
+    url: 'https://www.enabletoon.net/#/',
+  },
 ];

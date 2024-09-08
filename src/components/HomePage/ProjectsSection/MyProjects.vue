@@ -60,7 +60,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projectsSection = ref(null);
 
-const slicedProjects = projects.slice(0, 2);
+const slicedProjects = projects.reverse().slice(0, 2);
 
 onMounted(() => {
   gsap.fromTo(
