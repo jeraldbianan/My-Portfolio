@@ -6,12 +6,12 @@
       >
         My Projects
       </h2>
-      <div class="flex w-full max-w-full flex-col gap-y-[90px]">
-        <MyProjects />
-      </div>
+
+      <MyProjects />
+
       <q-btn
         unelevated
-        class="mt-[90px] h-16 w-[168px] bg-dark-blue/20 normal-case text-dark-blue"
+        class="mt-[90px] h-16 w-[168px] bg-dark-blue/20 font-roboto text-lg font-medium normal-case text-dark-blue dark:bg-main-blue dark:text-main-white"
         label="All Projects"
       />
     </div>
