@@ -3,11 +3,17 @@
     class="mx-auto mt-5 flex max-w-container justify-between bg-transparent"
   >
     <div class="flex">
-      <q-img
-        src="src/assets/images/JB-logo.svg"
-        fit="none"
-        class="h-[68px] w-[165px]"
-      />
+      <router-link to="/">
+        <q-img
+          :src="
+            route.name !== 'HomePage' && !darkMode
+              ? 'src/assets/images/JB-logo-dark.svg'
+              : 'src/assets/images/JB-logo.svg'
+          "
+          fit="none"
+          class="h-[68px] w-[165px]"
+        />
+      </router-link>
     </div>
     <div class="flex items-center gap-8">
       <DarkModeToggle />
@@ -19,6 +25,12 @@
 <script setup lang="ts">
 import DarkModeToggle from 'src/components/UI/DarkModeToggle.vue';
 import NavigationLinks from './NavigationBar/NavigationLinks.vue';
+import { useRoute } from 'vue-router';
+import { useDarkMode } from 'src/composables/useDarkMode';
+
+const route = useRoute();
+
+const { darkMode } = useDarkMode();
 </script>
 
 <style lang="scss" scoped></style>
