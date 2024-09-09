@@ -9,25 +9,40 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'HomePage',
         component: () => import('pages/HomePage.vue'),
+        meta: {
+          title: 'Home Page - Jerald Bianan',
+          description: 'My Website Homepage, showcasing projects and more.',
+        },
       },
       {
         path: '/projects',
         name: 'Projects',
         component: () => import('pages/ProjectsPage.vue'),
+        meta: {
+          title: 'Projects - Jerald Bianan',
+          description:
+            'Browse through my list of projects to see what I am working on.',
+        },
       },
       {
         path: '/projects/:id',
         name: 'Project',
         component: () => import('pages/ProjectsPage/ProjectPage.vue'),
+        meta: {
+          title: 'Project Details - Jerald Bianan',
+          description: 'Detailed information about the selected project.',
+        },
       },
     ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
+    meta: {
+      title: 'Page Not Found - Jerald Bianan',
+      description: 'This page does not exist.',
+    },
   },
 ];
 
