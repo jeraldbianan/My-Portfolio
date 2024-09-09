@@ -2,8 +2,8 @@
   <footer class="flex justify-center bg-dark-grey py-10 dark:bg-main-white">
     <div class="flex w-full max-w-container justify-between">
       <div class="flex w-[165px] flex-col">
-        <q-img :src="logoSrc" />
-        <p class="mt-4 font-roboto text-sm text-main-white dark:text-dark-blue">
+        <router-link to="/" class="mb-6"><q-img :src="logoSrc" /></router-link>
+        <p class="font-roboto text-sm text-main-white dark:text-dark-blue">
           Front-end Web Developer
         </p>
         <p
@@ -21,16 +21,17 @@
             Projects
           </h3>
           <div class="mb-[10px] mt-5 flex flex-col gap-[10px]">
-            <p
+            <router-link
               v-for="project in slicedProjects"
               :key="project.id"
+              :to="{ name: 'Project', params: { id: project.id } }"
               class="cursor-pointer text-main-white hover:text-main-blue dark:text-dark-blue dark:hover:text-main-blue"
             >
               {{ project.title }}
-            </p>
+            </router-link>
           </div>
           <router-link
-            to=""
+            to="/projects"
             class="text-main-white hover:text-main-blue dark:text-dark-blue dark:hover:text-main-blue"
             >View More...</router-link
           >
@@ -43,6 +44,7 @@
           </h3>
           <p
             class="mt-5 cursor-pointer text-main-white hover:text-main-blue dark:text-dark-blue dark:hover:text-main-blue"
+            @click="sendEmail"
           >
             {{ email }}
           </p>
@@ -105,6 +107,10 @@ const filterContacts = () => {
       : contact.name !== 'Github Dark';
   });
   return filteredContacts.value;
+};
+
+const sendEmail = () => {
+  window.location.href = `mailto:${email.value}`;
 };
 
 watch(darkMode, () => {
