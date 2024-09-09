@@ -21,14 +21,14 @@
         </p>
         <div class="mt-[70px] flex items-center justify-center gap-[30px]">
           <q-icon
-            name="img:src/assets/icons/contact/gmail.svg"
+            name="img:icons/contact/gmail.svg"
             class="h-[69px] w-[69px] cursor-pointer transition-all hover:scale-110"
             @click="sendEmail"
           />
           <div v-for="contact in filteredContacts" :key="contact.id">
             <a :href="contact.url" target="_blank">
               <q-icon
-                :name="`img:src/assets/icons/contact/${contact.iconSrc}`"
+                :name="`img:icons/contact/${contact.iconSrc}`"
                 class="h-[69px] w-[69px] transition-all hover:scale-110"
               />
             </a>

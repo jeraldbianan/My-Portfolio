@@ -5,7 +5,7 @@ import IntroductionSection from './HeroSection/IntroductionSection.vue';
 <template>
   <div>
     <q-img
-      src="src/assets/images/hero-background.jpg"
+      src="images/hero-background.jpg"
       alt="Hero Background"
       class="relative min-h-[800px]"
     >

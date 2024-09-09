@@ -12,10 +12,10 @@
       <div class="projects mt-10 grid grid-cols-3 gap-[30px]">
         <div v-for="project in reversedProjects" :key="project.id">
           <q-card
-            class="!shadow-bigShadow cursor-pointer transition-all hover:scale-105"
+            class="cursor-pointer !shadow-bigShadow transition-all hover:scale-105"
             @click="viewDetails(project.id)"
           >
-            <img :src="`src/assets/images/projects/${project.image}`" />
+            <img :src="`images/projects/${project.image}`" />
 
             <q-card-section class="!p-5">
               <h3 class="font-poppins text-2xl font-medium text-dark-blue">
@@ -32,7 +32,7 @@
               <q-icon
                 v-for="technology in project.technologies"
                 :key="technology"
-                :name="`img:src/assets/icons/technologies/${technology}.svg`"
+                :name="`img:icons/technologies/${technology}.svg`"
                 class="h-[35px] w-[35px]"
               />
             </div>

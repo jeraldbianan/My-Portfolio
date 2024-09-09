@@ -7,8 +7,8 @@
         <q-img
           :src="
             route.name !== 'HomePage' && !darkMode
-              ? 'src/assets/images/JB-logo-dark.svg'
-              : 'src/assets/images/JB-logo.svg'
+              ? 'images/JB-logo-dark.svg'
+              : 'images/JB-logo.svg'
           "
           fit="none"
           class="h-[68px] w-[165px]"

@@ -14,7 +14,7 @@
       <div v-for="technology in technologies" :key="technology.id">
         <a :href="technology.url" target="_blank">
           <q-img
-            :src="`src/assets/icons/technologies/${technology.image}`"
+            :src="`icons/technologies/${technology.image}`"
             :alt="technology.name"
             class="h-[70px] w-[70px] transition hover:scale-110"
           />

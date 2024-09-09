@@ -14,13 +14,13 @@
         class="slide-to-left relative mt-10 h-[580px] w-full overflow-hidden rounded"
       >
         <img
-          :src="`src/assets/images/projects/${projectDetails?.image}`"
+          :src="`images/projects/${projectDetails?.image}`"
           class="object-contain"
         />
         <div class="absolute bottom-0 left-0 right-0 top-0 bg-black/30"></div>
         <img
           v-if="projectDetails?.mobileImg"
-          :src="`src/assets/images/projects/${projectDetails?.mobileImg}`"
+          :src="`images/projects/${projectDetails?.mobileImg}`"
           class="absolute right-[8.75%] top-[6.27%] h-[503px] w-[255.76] transition-all hover:-translate-x-3 hover:-translate-y-3"
         />
       </div>
@@ -42,7 +42,7 @@
             <q-icon
               v-for="techonology in projectDetails?.technologies"
               :key="techonology"
-              :name="`img:src/assets/icons/technologies/${techonology}.svg`"
+              :name="`img:icons/technologies/${techonology}.svg`"
               class="h-[70px] w-[70px]"
             />
           </div>
@@ -56,7 +56,7 @@
                 Go to website
               </p>
               <q-icon
-                name="img:src/assets/icons/actions/arrow-right.svg"
+                name="img:icons/actions/arrow-right.svg"
                 class="h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-2"
               />
             </a>

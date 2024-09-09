@@ -9,8 +9,8 @@
       :class="['flex justify-between', { 'flex-row-reverse': index % 2 === 1 }]"
     >
       <q-img
-        :src="`src/assets/images/projects/${project.image}`"
-        class="shadow-bigShadow h-[315px] w-[565px] rounded"
+        :src="`images/projects/${project.image}`"
+        class="h-[315px] w-[565px] rounded shadow-bigShadow"
         :class="{
           'slide-to-left': index % 2 === 1,
           'slide-to-right': index % 2 === 0,
@@ -41,7 +41,7 @@
             View Project
           </p>
           <q-icon
-            name="img:src/assets/icons/actions/arrow-right.svg"
+            name="img:icons/actions/arrow-right.svg"
             class="h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-2"
           />
         </router-link>

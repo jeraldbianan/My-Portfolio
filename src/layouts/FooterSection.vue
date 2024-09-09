@@ -59,7 +59,7 @@
             <div v-for="contact in filteredContacts" :key="contact.id">
               <a :href="contact.url" target="_blank">
                 <q-icon
-                  :name="`img:src/assets/icons/contact/${contact.iconSrc}`"
+                  :name="`img:icons/contact/${contact.iconSrc}`"
                   class="h-10 w-10 transition-all hover:scale-110"
                 />
               </a>
@@ -96,8 +96,8 @@ const slicedProjects = computed(() => {
 
 const renderLogo = () => {
   return (logoSrc.value = darkMode.value
-    ? 'src/assets/images/JB-logo-dark.svg'
-    : 'src/assets/images/JB-logo.svg');
+    ? 'images/JB-logo-dark.svg'
+    : 'images/JB-logo.svg');
 };
 
 const filterContacts = () => {
