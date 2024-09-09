@@ -63,6 +63,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const { darkMode } = useDarkMode();
 const filteredContacts = ref();
+const email = ref('jeraldbianan@gmail.com');
 
 onMounted(() => {
   gsap.fromTo(
@@ -97,8 +98,7 @@ const filterContacts = () => {
 };
 
 const sendEmail = () => {
-  const email = 'jeraldbianan.com';
-  window.location.href = `mailto:${email}`;
+  window.location.href = `mailto:${email.value}`;
 };
 
 watch(darkMode, () => {
