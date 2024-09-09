@@ -33,7 +33,8 @@
         >
           {{ project.description }}
         </p>
-        <div
+        <router-link
+          :to="{ name: 'Project', params: { id: project.id } }"
           class="group mt-[52px] flex cursor-pointer items-center gap-3 transition-all"
         >
           <p class="font-roboto text-base font-bold text-main-blue">
@@ -43,7 +44,7 @@
             name="img:src/assets/icons/actions/arrow-right.svg"
             class="h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-2"
           />
-        </div>
+        </router-link>
       </div>
     </div>
   </section>

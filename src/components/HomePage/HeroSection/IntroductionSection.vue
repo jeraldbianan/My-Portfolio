@@ -22,7 +22,7 @@
       <q-btn
         :key="3"
         unelevated
-        class="mt-10 h-16 w-full max-w-[270px] bg-main-blue font-roboto text-lg font-medium normal-case transition hover:bg-main-blue/80"
+        class="mt-20 h-16 w-full max-w-[270px] bg-main-blue font-roboto text-lg font-medium normal-case transition hover:bg-main-blue/80"
         @click="scrollToSection('myProjects')"
       >
         View Latest Projects
