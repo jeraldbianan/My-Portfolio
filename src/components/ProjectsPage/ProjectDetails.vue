@@ -2,57 +2,63 @@
   <div
     :key="routeId"
     ref="projectDetailsRef"
-    class="flex justify-center bg-main-white pb-[90px] pt-[88px] dark:bg-dark-blue"
+    class="mobile:pt-10 flex justify-center bg-main-white pb-[90px] pt-[88px] dark:bg-dark-blue"
   >
-    <div class="flex w-full max-w-container flex-col items-center">
+    <div
+      class="mobile:mx-[30px] mx-[60px] flex w-full max-w-container flex-col items-center"
+    >
       <h2
-        class="mt-[77px] font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white"
+        class="mobile:text-3xl mt-[77px] font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white"
       >
         {{ projectDetails?.title }}
       </h2>
       <div
-        class="slide-to-left relative mt-10 h-[580px] w-full overflow-hidden rounded"
+        class="slide-to-left relative mt-10 w-full max-w-container overflow-hidden rounded"
       >
         <img
           :src="`images/projects/${projectDetails?.image}`"
-          class="object-contain"
+          class="w-full max-w-[1160px] object-contain"
         />
         <div class="absolute bottom-0 left-0 right-0 top-0 bg-black/30"></div>
         <img
           v-if="projectDetails?.mobileImg"
           :src="`images/projects/${projectDetails?.mobileImg}`"
-          class="absolute right-[8.75%] top-[6.27%] h-[503px] w-[255.76] transition-all hover:-translate-x-3 hover:-translate-y-3"
+          class="absolute right-[8.75%] top-[6.27%] h-[83.14%] w-[22.04%] transition-all hover:-translate-x-3 hover:-translate-y-3"
         />
       </div>
 
-      <div class="mt-[60px] w-[764px]">
+      <div class="mobile:mt-10 mt-[60px] w-full max-w-[764px]">
         <p
-          class="slide-to-left font-roboto text-lg leading-[145.8%] text-dark-blue dark:text-main-white"
+          class="slide-to-left mobile:text-base font-roboto text-lg leading-[145.8%] text-dark-blue dark:text-main-white"
         >
           {{ projectDetails?.description }}
         </p>
 
-        <div class="slide-technology mt-[60px] flex flex-col items-start">
+        <div
+          class="slide-technology mobile:mt-10 mt-[60px] flex flex-col items-start"
+        >
           <h3
-            class="text mb-8 self-start font-poppins text-[30px] text-dark-blue dark:text-main-white"
+            class="mobile:text-lg mobile:mb-0 mb-8 self-start font-poppins text-[30px] text-dark-blue dark:text-main-white"
           >
             Technologies I used
           </h3>
-          <div class="mt-8 flex gap-[30px]">
+          <div class="mobile:gap-3 mt-8 flex gap-[30px]">
             <q-icon
               v-for="techonology in projectDetails?.technologies"
               :key="techonology"
               :name="`img:icons/technologies/${techonology}.svg`"
-              class="h-[70px] w-[70px]"
+              class="mobile:h-8 mobile:w-8 h-[70px] w-[70px]"
             />
           </div>
-          <div class="group mt-16 transition-all">
+          <div class="mobile:mt-10 group mt-16 transition-all">
             <a
               :href="projectDetails?.url"
               target="_blank"
               class="flex items-center gap-3"
             >
-              <p class="font-roboto text-base font-bold text-main-blue">
+              <p
+                class="mobile:text-sm font-roboto text-base font-bold text-main-blue"
+              >
                 Go to website
               </p>
               <q-icon
