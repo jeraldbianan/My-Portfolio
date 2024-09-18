@@ -7,12 +7,12 @@ import IntroductionSection from './HeroSection/IntroductionSection.vue';
     <q-img
       src="images/hero-background.jpg"
       alt="Hero Background"
-      class="relative min-h-[800px]"
+      class="mobile:w-full mobile:min-h-[600px] relative min-h-[800px]"
     >
       <div
         class="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center !bg-black/50"
       >
-        <div class="mx-[60px] w-full max-w-container">
+        <div class="mobile:mx-[30px] mx-[60px] w-full max-w-container">
           <IntroductionSection />
         </div>
       </div>

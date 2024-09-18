@@ -8,14 +8,14 @@
     >
       <h1
         :key="1"
-        class="mobile:text-center mobile:text-[14vw] mobile:leading-[120%] font-poppins text-[65px] font-black leading-[67.5%] text-main-white"
+        class="mobile:text-center mobile:text-[50px] mobile:leading-[120%] font-poppins text-[65px] font-black leading-[67.5%] text-main-white"
       >
         I’m <span class="text-main-blue">Jerald Bianan</span>
       </h1>
 
       <p
         :key="2"
-        class="mobile:text-center mobile:max-w-full mobile:text-sm mt-5 max-w-[350px] font-roboto text-[26px] font-normal leading-[150%]"
+        class="mobile:text-center mobile:max-w-full mobile:text-base mt-5 max-w-[350px] font-roboto text-[26px] font-normal leading-[150%]"
       >
         Fullstack Web Developer
       </p>

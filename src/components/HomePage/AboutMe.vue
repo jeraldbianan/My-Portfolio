@@ -1,15 +1,22 @@
 <template>
-  <div class="flex justify-center bg-white py-[90px] dark:!bg-dark-blue">
-    <div class="flex w-full max-w-container flex-col items-center">
+  <div
+    class="mobile:py-[60px] flex justify-center bg-white py-[90px] dark:!bg-dark-blue"
+  >
+    <div
+      class="mobile:mx-[30px] mx-[60px] flex w-full max-w-container flex-col items-center"
+    >
       <h2
-        class="font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white"
+        class="mobile:text-3xl font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white"
       >
         About Me
       </h2>
 
-      <div ref="aboutMe" class="mt-[90px] flex w-full justify-between">
+      <div
+        ref="aboutMe"
+        class="tablet:mt-[60px] mobile:mt-[30px] tablet:flex-col tablet:items-center mt-[90px] flex w-full justify-between"
+      >
         <div
-          class="intro flex w-full max-w-[567px] flex-col gap-8 font-roboto text-2xl font-normal leading-[145.8%] text-main-grey dark:text-main-white"
+          class="intro tablet:max-w-full mobile:text-lg flex w-full max-w-[567px] flex-col gap-8 font-roboto text-2xl font-normal leading-[145.8%] text-main-grey dark:text-main-white"
         >
           <p>
             In front-end web development I have 2+ years of experience, I
@@ -21,7 +28,7 @@
             create intuitive and engaging user interfaces.
           </p>
         </div>
-        <TechnologiesComponent class="techonologies" />
+        <TechnologiesComponent class="techonologies tablet:mt-[60px]" />
       </div>
     </div>
   </div>
