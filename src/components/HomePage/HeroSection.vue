@@ -12,7 +12,7 @@ import IntroductionSection from './HeroSection/IntroductionSection.vue';
       <div
         class="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center !bg-black/50"
       >
-        <div class="mobile:mx-5 mx-[60px] w-full max-w-container">
+        <div class="mx-[60px] w-full max-w-container">
           <IntroductionSection />
         </div>
       </div>

@@ -119,7 +119,7 @@ const debounce = <T extends (...args: string[]) => void>(
 
 // Function to check viewport size
 const checkViewport = () => {
-  isMobile.value = window.matchMedia('(max-width: 640px)').matches;
+  isMobile.value = window.matchMedia('(max-width: 760px)').matches;
   if (!isMobile.value) {
     rightDrawerOpen.value = false;
   }

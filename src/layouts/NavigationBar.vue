@@ -1,7 +1,7 @@
 <template>
   <q-header class="mx-auto mt-5 flex justify-center bg-transparent">
     <div
-      class="mobile:mx-5 mx-[60px] flex w-full max-w-container justify-between"
+      class="mobile:mx-[30px] mx-[60px] flex w-full max-w-container justify-between"
     >
       <div class="flex">
         <router-link to="/">
@@ -72,7 +72,7 @@ const debounce = <T extends (...args: string[]) => void>(
 };
 
 const checkViewport = () => {
-  isMobile.value = window.matchMedia('(max-width: 640px)').matches;
+  isMobile.value = window.matchMedia('(max-width: 760px)').matches;
 };
 
 // Debounced version of the checkViewport function for the resize event
