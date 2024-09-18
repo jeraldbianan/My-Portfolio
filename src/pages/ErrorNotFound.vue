@@ -1,29 +1,39 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
-    <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
+  <q-layout view="hhh lpR fFf">
+    <div class="bg-main-white dark:bg-dark-blue">
+      <NavigationBar />
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
+      <q-page-container class="h-[80vh] !p-0">
+        <div class="mobile:pt-28 flex w-full flex-col items-center pt-32">
+          <p
+            class="mobile:text-3xl font-poppins text-6xl font-black leading-[100%] text-main-blue"
+          >
+            404
+          </p>
+          <p
+            class="mobile:text-sm font-roboto text-lg font-black uppercase text-dark-blue"
+          >
+            Page not found
+          </p>
+          <q-btn
+            unelevated
+            label="Home"
+            class="mobile:mt-6 mt-10 bg-dark-blue/20 font-roboto normal-case"
+            to="/"
+          />
+        </div>
+      </q-page-container>
 
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        to="/"
-        label="Go Home"
-        no-caps
-      />
+      <FooterSection />
     </div>
-  </div>
+  </q-layout>
 </template>
 
 <script setup lang="ts">
+import FooterSection from 'src/layouts/FooterSection.vue';
+import NavigationBar from 'src/layouts/NavigationBar.vue';
+
 defineOptions({
-  name: 'ErrorNotFound'
+  name: 'ErrorNotFound',
 });
 </script>
