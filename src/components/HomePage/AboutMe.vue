@@ -38,50 +38,36 @@
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import TechnologiesComponent from './AboutMe/TechnologiesComponent.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const aboutMe = ref(null);
+const aboutMe = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  gsap.fromTo(
-    '.techonologies',
-    {
-      x: 100,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0,
-      scrollTrigger: {
-        trigger: aboutMe.value,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
-      },
-    },
-  );
-  gsap.fromTo(
+  const elements = gsap.utils.toArray([
     '.intro',
-    {
-      x: -100,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0,
-      scrollTrigger: {
-        trigger: aboutMe.value,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
+    '.techonologies',
+  ]) as HTMLElement[];
+
+  elements.forEach((el: HTMLElement) => {
+    const xOffset = el.classList.contains('intro') ? -100 : 100;
+
+    gsap.fromTo(
+      el,
+      { x: xOffset, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: aboutMe.value,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
       },
-    },
-  );
+    );
+  });
 });
 </script>
 

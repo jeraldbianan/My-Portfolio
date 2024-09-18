@@ -14,17 +14,11 @@
       <q-img
         :src="`images/projects/${project.image}`"
         class="tablet:max-w-full tablet:max-h-[600px] mobile:!min-h-0 tablet:!h-full !h-[315px] max-w-[565px] rounded shadow-bigShadow"
-        :class="{
-          'slide-to-left': index % 2 === 1,
-          'slide-to-right': index % 2 === 0,
-        }"
+        :class="[index % 2 === 1 ? 'slide-to-left' : 'slide-to-right']"
       />
       <div
         class="tablet:max-w-full flex w-full max-w-[464px] flex-col justify-center"
-        :class="{
-          'slide-to-right': index % 2 === 1,
-          'slide-to-left': index % 2 === 0,
-        }"
+        :class="[index % 2 === 1 ? 'slide-to-right' : 'slide-to-left']"
       >
         <h3
           class="tablet:mt-10 mobile:text-3xl mobile:w-full font-poppins text-[35px] text-dark-blue dark:text-main-white"
@@ -59,53 +53,36 @@
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import { projects } from 'src/data/projects';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projectsSection = ref(null);
-
-const slicedProjects = [...projects].reverse().slice(0, 2);
+const projectsSection = ref<HTMLElement | null>(null);
+const slicedProjects = projects.reverse().slice(0, 2);
 
 onMounted(() => {
-  gsap.fromTo(
-    '.slide-to-right',
-    {
-      x: -100,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0,
-      scrollTrigger: {
-        trigger: projectsSection.value,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
-      },
-    },
-  );
+  const elements = gsap.utils.toArray(
+    '.slide-to-right, .slide-to-left',
+  ) as HTMLElement[];
 
-  gsap.fromTo(
-    '.slide-to-left',
-    {
-      x: 100,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0,
-      scrollTrigger: {
-        trigger: projectsSection.value,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
+  elements.forEach((el: HTMLElement) => {
+    const direction = el.classList.contains('slide-to-right') ? -100 : 100;
+
+    gsap.fromTo(
+      el,
+      { x: direction, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: projectsSection.value,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
       },
-    },
-  );
+    );
+  });
 });
 </script>
 

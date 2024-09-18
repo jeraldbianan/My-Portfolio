@@ -40,14 +40,14 @@ import { useScrollToSection } from 'src/composables/useScrollToSection';
 const { scrollToSection } = useScrollToSection();
 
 const beforeEnter = (el: Element) => {
-  const element = el as HTMLElement;
-  element.style.transform = 'translateX(-60px)';
-  element.style.opacity = '0';
+  gsap.set(el, {
+    x: -60,
+    opacity: 0,
+  });
 };
 
 const enter = (el: Element) => {
-  const element = el as HTMLElement;
-  gsap.to(element, {
+  gsap.to(el, {
     duration: 0.5,
     x: 0,
     opacity: 1,
