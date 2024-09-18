@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mobile:!gap-0 flex items-center gap-8">
+    <div class="navbar mobile:!gap-0 flex items-center gap-8">
       <ul v-for="link in links" :key="link.title">
         <router-link
           :to="link.url"
@@ -59,14 +59,14 @@
       <ul v-for="link in links" :key="link.title" class="flex w-full flex-col">
         <router-link
           :to="link.url"
-          class="mb-4 font-roboto text-lg font-medium text-dark-blue dark:text-main-white"
+          class="mb-4 font-roboto text-base font-medium text-dark-blue dark:text-main-white"
           >{{ link.title }}</router-link
         >
       </ul>
       <p
         v-if="route.name === 'HomePage'"
         @click="scrollToSectionMobile"
-        class="font-roboto text-lg font-medium text-dark-blue dark:text-main-white"
+        class="font-roboto text-base font-medium text-dark-blue dark:text-main-white"
       >
         Contact
       </p>
@@ -143,7 +143,7 @@ const scrollToSectionMobile = () => {
 </script>
 
 <style scoped>
-.router-link-exact-active {
+.navbar > ul > .router-link-exact-active {
   @apply border-b-4 border-b-main-blue;
 }
 </style>
