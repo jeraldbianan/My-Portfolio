@@ -1,9 +1,9 @@
 <template>
   <q-layout view="hhh lpR ffr">
     <NavigationBar />
+    <HeroSection v-if="route.name === 'HomePage'" />
 
     <q-page-container class="!p-0">
-      <HeroSection v-if="route.name === 'HomePage'" />
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
