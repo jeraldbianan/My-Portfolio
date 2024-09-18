@@ -1,15 +1,19 @@
 <template>
   <div
     ref="allProjects"
-    class="flex justify-center bg-main-white pb-[90px] pt-[88px] dark:bg-dark-blue"
+    class="mobile:pt-10 flex justify-center bg-main-white pb-[90px] pt-[88px] dark:bg-dark-blue"
   >
-    <div class="flex w-full max-w-container flex-col items-center">
+    <div
+      class="mobile:mx-[30px] mx-[60px] flex w-full max-w-container flex-col items-center"
+    >
       <h2
-        class="mt-[77px] font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white"
+        class="mobile:text-3xl mt-[77px] font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white"
       >
         My Projects
       </h2>
-      <div class="projects mt-10 grid grid-cols-3 gap-[30px]">
+      <div
+        class="projects tablet:grid-cols-2 mobile:grid-cols-1 mt-10 grid grid-cols-3 gap-[30px]"
+      >
         <div v-for="project in reversedProjects" :key="project.id">
           <q-card
             class="cursor-pointer !shadow-bigShadow transition-all hover:scale-105"
@@ -18,11 +22,13 @@
             <img :src="`images/projects/${project.image}`" />
 
             <q-card-section class="!p-5">
-              <h3 class="font-poppins text-2xl font-medium text-dark-blue">
+              <h3
+                class="mobile:text-lg font-poppins text-2xl font-medium text-dark-blue"
+              >
                 {{ project.title }}
               </h3>
               <p
-                class="mt-2 line-clamp-3 font-roboto text-base font-light text-main-grey"
+                class="mobile:text-sm mt-2 line-clamp-3 font-roboto text-base font-light text-main-grey"
               >
                 {{ project.description }}
               </p>
@@ -33,7 +39,7 @@
                 v-for="technology in project.technologies"
                 :key="technology"
                 :name="`img:icons/technologies/${technology}.svg`"
-                class="h-[35px] w-[35px]"
+                class="mobile:h-6 mobile:w-6 h-[35px] w-[35px]"
               />
             </div>
           </q-card>
