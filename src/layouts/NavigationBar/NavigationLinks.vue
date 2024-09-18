@@ -141,3 +141,9 @@ const scrollToSectionMobile = () => {
   }, 500);
 };
 </script>
+
+<style scoped>
+.router-link-exact-active {
+  @apply border-b-4 border-b-main-blue;
+}
+</style>
