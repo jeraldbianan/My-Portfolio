@@ -3,11 +3,11 @@
     ref="callToAction"
     class="slide-up flex justify-center bg-white pb-[90px] dark:!bg-dark-blue"
   >
-    <div class="flex w-full max-w-container flex-col items-center">
-      <div class="h-[1px] w-[565px] bg-main-grey"></div>
+    <div class="mx-[60px] flex w-full max-w-container flex-col items-center">
+      <div class="h-[1px] w-full max-w-[565px] bg-main-grey"></div>
       <div class="slide-left flex flex-col items-center">
         <h1
-          class="mt-12 font-poppins text-[75px] font-bold text-main-grey dark:text-main-white"
+          class="mobile:text-5xl mt-12 text-center font-poppins text-[75px] font-bold !leading-[140%] text-main-grey dark:text-main-white"
         >
           Say hi to
           <span class="text-main-blue"
@@ -15,21 +15,25 @@
             >.</span
           >
         </h1>
-        <p class="mt-5 font-roboto text-xl text-main-grey dark:text-main-white">
+        <p
+          class="mobile:text-base mt-5 text-center font-roboto text-xl text-main-grey dark:text-main-white"
+        >
           If you need a front-end developer for your project contact me in the
           platforms below
         </p>
-        <div class="mt-[70px] flex items-center justify-center gap-[30px]">
+        <div
+          class="mobile:gap-3 mobile:mt-10 mt-[70px] flex items-center justify-center gap-[30px]"
+        >
           <q-icon
             name="img:icons/contact/gmail.svg"
-            class="h-[69px] w-[69px] cursor-pointer transition-all hover:scale-110"
+            class="mobile:h-[30px] mobile:w-[30px] h-[69px] w-[69px] cursor-pointer transition-all hover:scale-110"
             @click="sendEmail"
           />
           <div v-for="contact in filteredContacts" :key="contact.id">
             <a :href="contact.url" target="_blank">
               <q-icon
                 :name="`img:icons/contact/${contact.iconSrc}`"
-                class="h-[69px] w-[69px] transition-all hover:scale-110"
+                class="mobile:h-[30px] mobile:w-[30px] h-[69px] w-[69px] transition-all hover:scale-110"
               />
             </a>
           </div>
