@@ -19,9 +19,8 @@
       >
         Fullstack Web Developer
       </p>
-      <div class="mobile:flex mobile:justify-center">
+      <div :key="3" class="mobile:flex mobile:justify-center">
         <q-btn
-          :key="3"
           unelevated
           class="mobile:mt-10 mobile:h-12 mobile:text-sm mobile:max-w-[200px] mt-20 h-16 w-full max-w-[270px] bg-main-blue font-roboto text-lg font-medium normal-case transition hover:bg-main-blue/80"
           @click="scrollToSection('myProjects')"

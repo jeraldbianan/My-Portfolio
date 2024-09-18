@@ -12,14 +12,15 @@
       >
         {{ projectDetails?.title }}
       </h2>
+
       <div
-        class="slide-to-left relative mt-10 w-full max-w-container overflow-hidden rounded"
+        class="slide-left relative mt-10 w-full max-w-container overflow-hidden rounded"
       >
         <img
           :src="`images/projects/${projectDetails?.image}`"
           class="w-full max-w-[1160px] object-contain"
         />
-        <div class="absolute bottom-0 left-0 right-0 top-0 bg-black/30"></div>
+        <div class="absolute inset-0 bg-black/30"></div>
         <img
           v-if="projectDetails?.mobileImg"
           :src="`images/projects/${projectDetails?.mobileImg}`"
@@ -29,13 +30,13 @@
 
       <div class="mobile:mt-10 mt-[60px] w-full max-w-[764px]">
         <p
-          class="slide-to-left mobile:text-base font-roboto text-lg leading-[145.8%] text-dark-blue dark:text-main-white"
+          class="slide-left mobile:text-base font-roboto text-lg leading-[145.8%] text-dark-blue dark:text-main-white"
         >
           {{ projectDetails?.description }}
         </p>
 
         <div
-          class="slide-technology mobile:mt-10 mt-[60px] flex flex-col items-start"
+          class="slide-right mobile:mt-10 mt-[60px] flex flex-col items-start"
         >
           <h3
             class="mobile:text-lg mobile:mb-0 mb-8 self-start font-poppins text-[30px] text-dark-blue dark:text-main-white"
@@ -44,9 +45,9 @@
           </h3>
           <div class="mobile:gap-3 mt-8 flex gap-[30px]">
             <q-icon
-              v-for="techonology in projectDetails?.technologies"
-              :key="techonology"
-              :name="`img:icons/technologies/${techonology}.svg`"
+              v-for="technology in projectDetails?.technologies"
+              :key="technology"
+              :name="`img:icons/technologies/${technology}.svg`"
               class="mobile:h-8 mobile:w-8 h-[70px] w-[70px]"
             />
           </div>
@@ -74,98 +75,23 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onBeforeMount, onMounted, reactive, ref, watch } from 'vue';
+import { ref, computed, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-import { projects } from 'src/data/projects';
-
-import { Projects } from 'src/types/Projects';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGsapAnimations } from 'src/composables/useGsapAnimations';
+import { useProjectDetails } from 'src/composables/useProjectDetails';
 
 const route = useRoute();
-const routeId = ref(Number(route.params.id));
-const mounted = ref(false);
-const projectsCopy = reactive([...projects]);
-const projectDetails = ref<Projects | null>(null);
-
+const routeId = computed(() => Number(route.params.id)); // Use computed for reactive routeId
 const projectDetailsRef = ref(null);
 
-onBeforeMount(() => {
-  fetchData(routeId.value, projectsCopy);
-});
+// Fetch project details based on routeId
+const { projectDetails, fetchProjectDetails } = useProjectDetails(routeId);
 
-onMounted(() => {
-  nextTick(() => {
-    mounted.value = true;
-    setupAnimations();
-  });
-});
+// Setup animations using composable
+useGsapAnimations(projectDetailsRef);
 
-const fetchData = (id: number, projects: Projects[]) => {
-  projectDetails.value =
-    projects.find((project) =>
-      id ? project.id === id : project.id === routeId.value,
-    ) || null;
-};
-
-const setupAnimations = () => {
-  gsap.fromTo(
-    '.slide-technology',
-    {
-      x: -100,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0,
-      scrollTrigger: {
-        trigger: projectDetailsRef.value,
-        start: 'center 50%',
-        toggleActions: 'play none none none',
-      },
-    },
-  );
-  gsap.fromTo(
-    '.slide-to-left',
-    {
-      x: 100,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0,
-      scrollTrigger: {
-        trigger: projectDetailsRef.value,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
-      },
-    },
-  );
-};
-
-watch(route, (newRoute) => {
-  const newRouteId = Number(newRoute.params.id);
-  routeId.value = newRouteId;
-  const newArray = [...projects];
-
-  mounted.value = false;
-
-  nextTick(() => {
-    fetchData(newRouteId, newArray);
-    mounted.value = true;
-
-    nextTick(() => {
-      setupAnimations();
-    });
-  });
+// Watch route changes and fetch new data
+watchEffect(() => {
+  fetchProjectDetails();
 });
 </script>
-
-<style scoped></style>

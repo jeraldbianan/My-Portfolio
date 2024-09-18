@@ -1,11 +1,11 @@
 <template>
   <div
     ref="callToAction"
-    class="slide-up flex justify-center bg-white pb-[90px] dark:!bg-dark-blue"
+    class="flex justify-center bg-white pb-[90px] dark:!bg-dark-blue"
   >
     <div class="mx-[60px] flex w-full max-w-container flex-col items-center">
       <div class="h-[1px] w-full max-w-[565px] bg-main-grey"></div>
-      <div class="slide-left flex flex-col items-center">
+      <div class="slide-up flex flex-col items-center">
         <h1
           class="mobile:text-5xl mt-12 text-center font-poppins text-[75px] font-bold !leading-[140%] text-main-grey dark:text-main-white"
         >
@@ -71,7 +71,7 @@ const email = ref('jeraldbianan@gmail.com');
 
 onMounted(() => {
   gsap.fromTo(
-    '.slide-left',
+    '.slide-up',
     {
       y: 100,
       opacity: 0,

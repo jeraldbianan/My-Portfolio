@@ -58,7 +58,7 @@ import { projects } from 'src/data/projects';
 gsap.registerPlugin(ScrollTrigger);
 
 const projectsSection = ref<HTMLElement | null>(null);
-const slicedProjects = projects.reverse().slice(0, 2);
+const slicedProjects = [...projects].reverse().slice(0, 2);
 
 onMounted(() => {
   const elements = gsap.utils.toArray(
