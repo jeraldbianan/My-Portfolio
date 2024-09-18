@@ -18,7 +18,7 @@
         <p
           class="mobile:text-base mt-5 text-center font-roboto text-xl text-main-grey dark:text-main-white"
         >
-          If you need a front-end developer for your project contact me in the
+          If you need a fullstack developer for your project contact me in the
           platforms below
         </p>
         <div

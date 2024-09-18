@@ -1,4 +1,4 @@
-export const technologies = [
+export const frontendTechnologies = [
   {
     id: 1,
     name: 'Figma',
@@ -40,5 +40,14 @@ export const technologies = [
     name: 'Tailwind CSS',
     image: 'tailwind.svg',
     url: 'https://tailwindcss.com/',
+  },
+];
+
+export const backendTechnologies = [
+  {
+    id: 1,
+    name: 'PHP',
+    image: 'php.svg',
+    url: 'https://www.php.net/',
   },
 ];
