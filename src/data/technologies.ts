@@ -50,4 +50,10 @@ export const backendTechnologies = [
     image: 'php.svg',
     url: 'https://www.php.net/',
   },
+  {
+    id: 2,
+    name: 'Laravel',
+    image: 'laravel.svg',
+    url: 'https://laravel.com/',
+  },
 ];
