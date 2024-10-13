@@ -41,12 +41,12 @@ export const frontendTechnologies = [
     image: 'tailwind.svg',
     url: 'https://tailwindcss.com/',
   },
-  {
-    id: 8,
-    name: 'Alpine JS',
-    image: 'alpinejs.svg',
-    url: 'https://alpinejs.dev/',
-  },
+  // {
+  //   id: 8,
+  //   name: 'Alpine JS',
+  //   image: 'alpinejs.svg',
+  //   url: 'https://alpinejs.dev/',
+  // },
 ];
 
 export const backendTechnologies = [
@@ -80,28 +80,28 @@ export const backendTechnologies = [
     image: 'sqlite.svg',
     url: 'https://www.sqlite.org/',
   },
-  {
-    id: 6,
-    name: 'PostgreSQL',
-    image: 'postgresql.svg',
-    url: 'https://www.postgresql.org/',
-  },
-  {
-    id: 7,
-    name: 'Livewire',
-    image: 'livewire.svg',
-    url: 'https://laravel-livewire.com/',
-  },
-  {
-    id: 8,
-    name: 'Inertia',
-    image: 'inertia.svg',
-    url: 'https://inertiajs.com/',
-  },
-  {
-    id: 9,
-    name: 'Laravel Jetstream',
-    image: 'jetstream.svg',
-    url: 'https://jetstream.laravel.com/introduction.html',
-  },
+  // {
+  //   id: 6,
+  //   name: 'PostgreSQL',
+  //   image: 'postgresql.svg',
+  //   url: 'https://www.postgresql.org/',
+  // },
+  // {
+  //   id: 7,
+  //   name: 'Livewire',
+  //   image: 'livewire.svg',
+  //   url: 'https://laravel-livewire.com/',
+  // },
+  // {
+  //   id: 8,
+  //   name: 'Inertia',
+  //   image: 'inertia.svg',
+  //   url: 'https://inertiajs.com/',
+  // },
+  // {
+  //   id: 9,
+  //   name: 'Laravel Jetstream',
+  //   image: 'jetstream.svg',
+  //   url: 'https://jetstream.laravel.com/introduction.html',
+  // },
 ];
