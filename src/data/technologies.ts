@@ -41,6 +41,12 @@ export const frontendTechnologies = [
     image: 'tailwind.svg',
     url: 'https://tailwindcss.com/',
   },
+  {
+    id: 8,
+    name: 'Alpine JS',
+    image: 'alpinejs.svg',
+    url: 'https://alpinejs.dev/',
+  },
 ];
 
 export const backendTechnologies = [
@@ -55,5 +61,47 @@ export const backendTechnologies = [
     name: 'Laravel',
     image: 'laravel.svg',
     url: 'https://laravel.com/',
+  },
+  {
+    id: 3,
+    name: 'SQL',
+    image: 'sql.svg',
+    url: 'https://www.w3schools.com/sql/default.asp',
+  },
+  {
+    id: 4,
+    name: 'MySQL',
+    image: 'mysql.svg',
+    url: 'https://www.mysql.com/',
+  },
+  {
+    id: 5,
+    name: 'SQLite',
+    image: 'sqlite.svg',
+    url: 'https://www.sqlite.org/',
+  },
+  {
+    id: 6,
+    name: 'PostgreSQL',
+    image: 'postgresql.svg',
+    url: 'https://www.postgresql.org/',
+  },
+  {
+    id: 7,
+    name: 'Livewire',
+    image: 'livewire.svg',
+    url: 'https://laravel-livewire.com/',
+  },
+  {
+    id: 8,
+    name: 'Inertia',
+    image: 'inertia.svg',
+    url: 'https://inertiajs.com/',
+  },
+  {
+    id: 9,
+    name: 'Laravel Jetstream',
+    image: 'jetstream.svg',
+    url: 'https://jetstream.laravel.com/introduction.html',
   },
 ];
