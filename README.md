@@ -3,6 +3,10 @@
 My very own portfolio
 https://jeraldbianan.com/#/
 
+
+![portfolio-min](https://github.com/user-attachments/assets/e3c7f517-fef2-4f14-bf7e-e03f95884a2d)
+
+
 ## Install the dependencies
 ```bash
 yarn
