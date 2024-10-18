@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
-import LoadingSpinner from './components/UI/LoadingSpinner.vue';
-import { useRoute } from 'vue-router';
+import { ref, onMounted, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { RouteMeta } from './types/routes';
+import AjaxBarLoading from './components/UI/AjaxBarLoading.vue';
 
-defineOptions({
-  name: 'App',
-});
-
-const isLoading = ref(true);
+const isAppLoading = ref(true);
+const route = useRoute();
+const router = useRouter();
 
 onMounted(() => {
-  setTimeout(() => {
-    isLoading.value = false;
-  }, 1000);
-});
+  router.beforeEach((to, from, next) => {
+    isAppLoading.value = true;
+    next();
+  });
 
-const route = useRoute();
+  router.afterEach(() => {
+    isAppLoading.value = false;
+  });
+});
 
 watch(route, () => {
   const meta = route.meta as RouteMeta;
@@ -40,7 +41,7 @@ watch(route, () => {
 
 <template>
   <div>
-    <LoadingSpinner v-if="isLoading" />
+    <AjaxBarLoading v-if="isAppLoading" />
     <router-view v-else />
   </div>
 </template>
