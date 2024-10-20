@@ -1,41 +1,40 @@
 <template>
   <section
     ref="projectsSection"
-    class="mobile:gap-y-[60px] flex w-full max-w-full flex-col gap-y-[90px]"
+    class="flex w-full max-w-full flex-col gap-y-[90px] mobile:gap-y-[60px]"
   >
     <div
       v-for="(project, index) in slicedProjects"
       :key="project.id"
       :class="[
-        'tablet:flex-col flex flex-nowrap items-center justify-between',
+        'flex flex-nowrap items-center justify-between tablet:flex-col',
         { 'flex-row-reverse': index % 2 === 1 },
       ]"
     >
       <q-img
         :src="`images/projects/${project.image}`"
-        class="tablet:max-w-full tablet:max-h-[600px] mobile:!min-h-0 tablet:!h-full !h-[315px] max-w-[565px] rounded shadow-bigShadow"
+        class="!h-[315px] max-w-[565px] rounded shadow-bigShadow tablet:!h-full tablet:max-h-[600px] tablet:max-w-full mobile:!min-h-0"
         :class="[index % 2 === 1 ? 'slide-to-left' : 'slide-to-right']"
       />
       <div
-        class="tablet:max-w-full flex w-full max-w-[464px] flex-col justify-center"
+        class="flex w-full max-w-[464px] flex-col justify-center tablet:max-w-full"
         :class="[index % 2 === 1 ? 'slide-to-right' : 'slide-to-left']"
       >
         <h3
-          class="tablet:mt-10 mobile:text-3xl mobile:w-full font-poppins text-[35px] text-dark-blue dark:text-main-white"
+          class="font-poppins text-[35px] text-dark-blue dark:text-main-white tablet:mt-10 mobile:w-full mobile:text-3xl"
         >
           {{ project.title }}
         </h3>
         <p
-          class="mobile:text-sm mt-5 line-clamp-3 font-roboto text-xl text-main-grey dark:text-main-white"
-        >
-          {{ project.description }}
-        </p>
+          v-html="DOMPurify.sanitize(project.description)"
+          class="mt-5 line-clamp-3 font-roboto text-xl text-main-grey dark:text-main-white mobile:text-sm"
+        ></p>
         <router-link
           :to="{ name: 'Project', params: { id: project.id } }"
-          class="mobile:mt-10 group mt-[52px] flex cursor-pointer items-center gap-3 transition-all"
+          class="group mt-[52px] flex cursor-pointer items-center gap-3 transition-all mobile:mt-10"
         >
           <p
-            class="mobile:text-sm font-roboto text-base font-bold text-main-blue"
+            class="font-roboto text-base font-bold text-main-blue mobile:text-sm"
           >
             View Project
           </p>
@@ -54,6 +53,7 @@ import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from 'src/data/projects';
+import DOMPurify from 'dompurify';
 
 gsap.registerPlugin(ScrollTrigger);
 

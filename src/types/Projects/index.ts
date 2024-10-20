@@ -4,6 +4,11 @@ export interface Projects {
   image: string;
   mobileImg: string;
   description: string;
-  technologies: string[];
+  technologies: Technology[];
+  url: string;
+}
+
+export interface Technology {
+  name: string;
   url: string;
 }

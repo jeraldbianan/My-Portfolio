@@ -2,13 +2,13 @@
   <div
     :key="routeId"
     ref="projectDetailsRef"
-    class="mobile:pt-10 flex justify-center bg-main-white pb-[90px] pt-[88px] dark:bg-dark-blue"
+    class="flex justify-center bg-main-white pb-[90px] pt-[88px] dark:bg-dark-blue mobile:pt-10"
   >
     <div
-      class="mobile:mx-[30px] mx-[60px] flex w-full max-w-container flex-col items-center"
+      class="mx-[60px] flex w-full max-w-container flex-col items-center mobile:mx-[30px]"
     >
       <h2
-        class="mobile:text-3xl mt-[77px] font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white"
+        class="mt-[77px] font-poppins text-[45px] font-normal text-dark-blue dark:text-main-white mobile:text-3xl"
       >
         {{ projectDetails?.title }}
       </h2>
@@ -19,7 +19,7 @@
           :src="`images/projects/${projectDetails?.image}`"
           class="w-full max-w-[1160px] object-contain"
         />
-        <div class="absolute bottom-0 left-0 right-0 top-0 bg-black/30"></div>
+        <div class="absolute bottom-0 left-0 right-0 top-0 bg-black/10"></div>
         <img
           v-if="projectDetails?.mobileImg"
           :src="`images/projects/${projectDetails?.mobileImg}`"
@@ -27,37 +27,42 @@
         />
       </div>
 
-      <div class="mobile:mt-10 mt-[60px] w-full max-w-[764px]">
+      <div class="mt-[60px] w-full max-w-[764px] mobile:mt-10">
         <p
-          class="slide-to-left mobile:text-base font-roboto text-lg leading-[145.8%] text-dark-blue dark:text-main-white"
-        >
-          {{ projectDetails?.description }}
-        </p>
+          class="slide-to-left font-roboto text-lg leading-[145.8%] text-dark-blue dark:text-main-white mobile:text-base"
+          v-html="cleanDescription"
+        ></p>
 
         <div
-          class="slide-technology mobile:mt-10 mt-[60px] flex flex-col items-start"
+          class="slide-technology mt-[60px] flex flex-col items-start mobile:mt-10"
         >
           <h3
-            class="mobile:text-lg mobile:mb-0 mb-8 self-start font-poppins text-[30px] text-dark-blue dark:text-main-white"
+            class="mb-4 self-start font-poppins text-[30px] text-dark-blue dark:text-main-white mobile:mb-0 mobile:text-lg"
           >
             Technologies I used
           </h3>
-          <div class="mobile:gap-3 mt-8 flex gap-[30px]">
-            <q-icon
+          <div class="flex gap-[30px] mobile:gap-3">
+            <a
               v-for="techonology in projectDetails?.technologies"
-              :key="techonology"
-              :name="`img:icons/technologies/${techonology}.svg`"
-              class="mobile:h-8 mobile:w-8 h-[70px] w-[70px]"
-            />
+              :key="techonology.name"
+              :href="techonology.url"
+              class="hover:scale-105"
+              target="_blank"
+            >
+              <q-icon
+                :name="`img:icons/technologies/${techonology.name}.svg`"
+                class="h-[70px] w-[70px] mobile:h-8 mobile:w-8"
+              />
+            </a>
           </div>
-          <div class="mobile:mt-10 group mt-16 transition-all">
+          <div class="group mt-16 transition-all mobile:mt-10">
             <a
               :href="projectDetails?.url"
               target="_blank"
               class="flex items-center gap-3"
             >
               <p
-                class="mobile:text-sm font-roboto text-base font-bold text-main-blue"
+                class="font-roboto text-base font-bold text-main-blue mobile:text-sm"
               >
                 Go to website
               </p>
@@ -74,14 +79,13 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onBeforeMount, onMounted, reactive, ref, watch } from 'vue';
+import { nextTick, onBeforeMount, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import { projects } from 'src/data/projects';
-
 import { Projects } from 'src/types/Projects';
+import DOMPurify from 'dompurify';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,13 +93,14 @@ const route = useRoute();
 const router = useRouter();
 const routeId = ref(Number(route.params.id));
 const mounted = ref(false);
-const projectsCopy = reactive([...projects]);
+const projectsCopy = ref([...projects]);
 const projectDetails = ref<Projects | null>(null);
 
 const projectDetailsRef = ref(null);
+const cleanDescription = ref('');
 
 onBeforeMount(() => {
-  fetchData(routeId.value, projectsCopy);
+  fetchData(routeId.value, projectsCopy.value);
 });
 
 onMounted(() => {
@@ -112,7 +117,13 @@ const fetchData = (id: number, projects: Projects[]) => {
     ) || null;
 
   if (projectDetails.value) {
-    return projectDetails.value;
+    cleanDescription.value = DOMPurify.sanitize(
+      projectDetails.value.description,
+    );
+    return {
+      projectDetails,
+      cleanDescription,
+    };
   } else {
     router.push({ name: 'Projects' });
   }

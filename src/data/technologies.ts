@@ -53,12 +53,12 @@ export const frontendTechnologies = [
     image: 'tailwind.svg',
     url: 'https://tailwindcss.com/',
   },
-  // {
-  //   id: 10,
-  //   name: 'Alpine JS',
-  //   image: 'alpinejs.svg',
-  //   url: 'https://alpinejs.dev/',
-  // },
+  {
+    id: 10,
+    name: 'Alpine JS',
+    image: 'alpinejs.svg',
+    url: 'https://alpinejs.dev/',
+  },
 ];
 
 export const backendTechnologies = [
