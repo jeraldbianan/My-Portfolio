@@ -47,11 +47,77 @@ export const projects = [
   },
   {
     id: 3,
+    title: 'Runners',
+    image: 'runners.jpg',
+    mobileImg: 'runners-mobile.png',
+    description: `
+    A web application that I developed for my client RUNNERS Inc. This serves as their company website, where you can browse all of their products and applications, team members, job openings, blogs and so on.
+
+    <p class="mt-5">Since I am no longer working in the company the application might have gone changes already.</p>
+    `,
+    technologies: [
+      {
+        name: 'javascript',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      },
+      {
+        name: 'vue',
+        url: 'https://vuejs.org/',
+      },
+      {
+        name: 'quasar',
+        url: 'https://quasar.dev/',
+      },
+      {
+        name: 'typescript',
+        url: 'https://www.typescriptlang.org/',
+      },
+      {
+        name: 'tailwind',
+        url: 'https://tailwindcss.com/',
+      },
+    ],
+    url: 'https://runners.im/main',
+  },
+  {
+    id: 4,
+    title: 'Enabletoon',
+    image: 'enabletoon.jpg',
+    mobileImg: '',
+    description: `
+    An e-commerce web application developed using VueJS and the Quasar Framework in the front-end for my client RUNNERS Inc., originally based on https://www.enabletoon.com/, unfortunately the product is unfinished.
+    `,
+    technologies: [
+      {
+        name: 'javascript',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      },
+      {
+        name: 'vue',
+        url: 'https://vuejs.org/',
+      },
+      {
+        name: 'quasar',
+        url: 'https://quasar.dev/',
+      },
+      {
+        name: 'typescript',
+        url: 'https://www.typescriptlang.org/',
+      },
+      {
+        name: 'tailwind',
+        url: 'https://tailwindcss.com/',
+      },
+    ],
+    url: 'https://www.enabletoon.net/#/',
+  },
+  {
+    id: 5,
     title: 'Opportuneer',
     image: 'opportuneer.jpg',
     mobileImg: '',
     description: `
-    A Job listing web application created using PHP and Laravel
+    A Personal Project job listing web application created using PHP and Laravel
 
     <p class="mt-5">Features</p>
 
