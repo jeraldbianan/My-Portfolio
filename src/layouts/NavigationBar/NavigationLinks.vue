@@ -32,6 +32,7 @@
     @click="toggleRightDrawer"
     color="white"
     class="hidden mobile:!block"
+    aria-label="Hamburger icon"
   />
   <q-btn
     v-else
