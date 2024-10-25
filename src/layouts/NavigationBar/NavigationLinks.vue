@@ -1,14 +1,16 @@
 <template>
   <nav class="navbar flex items-center gap-8 mobile:!gap-0">
     <ul v-for="link in links" :key="link.title">
-      <router-link
-        :to="link.url"
-        class="pb-2 font-roboto text-sm font-medium text-main-white hover:border-b-4 hover:border-b-main-blue mobile:!hidden"
-        :class="{
-          '!text-dark-blue dark:!text-main-white': route.name !== 'HomePage',
-        }"
-        >{{ link.title }}</router-link
-      >
+      <li>
+        <router-link
+          :to="link.url"
+          class="pb-2 font-roboto text-sm font-medium text-main-white hover:border-b-4 hover:border-b-main-blue mobile:!hidden"
+          :class="{
+            '!text-dark-blue dark:!text-main-white': route.name !== 'HomePage',
+          }"
+          >{{ link.title }}</router-link
+        >
+      </li>
     </ul>
     <q-btn
       v-if="route.name === 'HomePage'"
