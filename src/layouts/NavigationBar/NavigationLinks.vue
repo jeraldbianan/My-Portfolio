@@ -1,77 +1,75 @@
 <template>
-  <template>
-    <nav class="navbar flex items-center gap-8 mobile:!gap-0">
-      <ul v-for="link in links" :key="link.title">
-        <router-link
-          :to="link.url"
-          class="pb-2 font-roboto text-sm font-medium text-main-white hover:border-b-4 hover:border-b-main-blue mobile:!hidden"
-          :class="{
-            '!text-dark-blue dark:!text-main-white': route.name !== 'HomePage',
-          }"
-          >{{ link.title }}</router-link
-        >
-      </ul>
-      <q-btn
-        v-if="route.name === 'HomePage'"
-        unelevated
-        class="h-[42px] w-[105px] bg-white/20 normal-case text-main-white mobile:!hidden"
-        @click="scrollToSection('callToAction')"
+  <nav class="navbar flex items-center gap-8 mobile:!gap-0">
+    <ul v-for="link in links" :key="link.title">
+      <router-link
+        :to="link.url"
+        class="pb-2 font-roboto text-sm font-medium text-main-white hover:border-b-4 hover:border-b-main-blue mobile:!hidden"
+        :class="{
+          '!text-dark-blue dark:!text-main-white': route.name !== 'HomePage',
+        }"
+        >{{ link.title }}</router-link
       >
-        Contact
-      </q-btn>
-    </nav>
-
+    </ul>
     <q-btn
       v-if="route.name === 'HomePage'"
-      dense
-      flat
-      round
-      size="16px"
-      icon="menu"
-      @click="toggleRightDrawer"
-      color="white"
-      class="hidden mobile:!block"
-    />
-    <q-btn
-      v-else
-      dense
-      flat
-      round
-      size="16px"
-      icon="menu"
-      @click="toggleRightDrawer"
-      class="hidden text-black dark:!text-white mobile:!block"
-    />
-    <q-drawer
-      v-model="rightDrawerOpen"
-      side="right"
-      class="flex flex-col px-4 pt-4 dark:bg-dark-blue"
+      unelevated
+      class="h-[42px] w-[105px] bg-white/20 normal-case text-main-white mobile:!hidden"
+      @click="scrollToSection('callToAction')"
     >
-      <div class="mb-3 flex items-center gap-2" aria-label="Dark Mode Icon">
-        <p
-          @click="toggleDarkMode"
-          class="font-roboto text-lg font-medium text-dark-blue dark:text-main-white"
-        >
-          {{ darkMode ? 'Light Mode' : 'Dark Mode' }}
-        </p>
-        <DarkModeToggle />
-      </div>
-      <ul v-for="link in links" :key="link.title" class="flex w-full flex-col">
-        <router-link
-          :to="link.url"
-          class="mb-4 font-roboto text-base font-medium text-dark-blue dark:text-main-white"
-          >{{ link.title }}</router-link
-        >
-      </ul>
+      Contact
+    </q-btn>
+  </nav>
+
+  <q-btn
+    v-if="route.name === 'HomePage'"
+    dense
+    flat
+    round
+    size="16px"
+    icon="menu"
+    @click="toggleRightDrawer"
+    color="white"
+    class="hidden mobile:!block"
+  />
+  <q-btn
+    v-else
+    dense
+    flat
+    round
+    size="16px"
+    icon="menu"
+    @click="toggleRightDrawer"
+    class="hidden text-black dark:!text-white mobile:!block"
+  />
+  <q-drawer
+    v-model="rightDrawerOpen"
+    side="right"
+    class="flex flex-col px-4 pt-4 dark:bg-dark-blue"
+  >
+    <div class="mb-3 flex items-center gap-2" aria-label="Dark Mode Icon">
       <p
-        v-if="route.name === 'HomePage'"
-        @click="scrollToSectionMobile"
-        class="font-roboto text-base font-medium text-dark-blue dark:text-main-white"
+        @click="toggleDarkMode"
+        class="font-roboto text-lg font-medium text-dark-blue dark:text-main-white"
       >
-        Contact
+        {{ darkMode ? 'Light Mode' : 'Dark Mode' }}
       </p>
-    </q-drawer>
-  </template>
+      <DarkModeToggle />
+    </div>
+    <ul v-for="link in links" :key="link.title" class="flex w-full flex-col">
+      <router-link
+        :to="link.url"
+        class="mb-4 font-roboto text-base font-medium text-dark-blue dark:text-main-white"
+        >{{ link.title }}</router-link
+      >
+    </ul>
+    <p
+      v-if="route.name === 'HomePage'"
+      @click="scrollToSectionMobile"
+      class="font-roboto text-base font-medium text-dark-blue dark:text-main-white"
+    >
+      Contact
+    </p>
+  </q-drawer>
 </template>
 
 <script setup lang="ts">
