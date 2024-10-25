@@ -1,10 +1,10 @@
 <template>
   <q-header class="mx-auto mt-5 flex justify-center bg-transparent">
     <div
-      class="mobile:mx-[30px] mx-[60px] flex w-full max-w-container justify-between"
+      class="mx-[60px] flex w-full max-w-container justify-between mobile:mx-[30px]"
     >
       <div class="flex">
-        <router-link to="/">
+        <router-link to="/" aria-label="Go to homepage">
           <q-img
             v-if="isMobile"
             :src="
@@ -12,6 +12,7 @@
                 ? 'images/mobile-logo.svg'
                 : 'images/mobile-logo-light.svg'
             "
+            alt="JBianan Logo"
             height="48px"
             width="48px"
           />
@@ -27,7 +28,7 @@
           />
         </router-link>
       </div>
-      <div class="mobile:!gap-3 flex items-center gap-8">
+      <div class="flex items-center gap-8 mobile:!gap-3">
         <DarkModeToggle class="mobile:hidden" />
         <NavigationLinks />
       </div>

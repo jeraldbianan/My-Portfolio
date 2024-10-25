@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div class="navbar mobile:!gap-0 flex items-center gap-8">
+  <template>
+    <nav class="navbar flex items-center gap-8 mobile:!gap-0">
       <ul v-for="link in links" :key="link.title">
         <router-link
           :to="link.url"
-          class="mobile:!hidden pb-2 font-roboto text-sm font-medium text-main-white hover:border-b-4 hover:border-b-main-blue"
+          class="pb-2 font-roboto text-sm font-medium text-main-white hover:border-b-4 hover:border-b-main-blue mobile:!hidden"
           :class="{
             '!text-dark-blue dark:!text-main-white': route.name !== 'HomePage',
           }"
@@ -14,12 +14,12 @@
       <q-btn
         v-if="route.name === 'HomePage'"
         unelevated
-        class="mobile:!hidden h-[42px] w-[105px] bg-white/20 normal-case text-main-white"
+        class="h-[42px] w-[105px] bg-white/20 normal-case text-main-white mobile:!hidden"
         @click="scrollToSection('callToAction')"
       >
         Contact
       </q-btn>
-    </div>
+    </nav>
 
     <q-btn
       v-if="route.name === 'HomePage'"
@@ -30,7 +30,7 @@
       icon="menu"
       @click="toggleRightDrawer"
       color="white"
-      class="mobile:!block hidden"
+      class="hidden mobile:!block"
     />
     <q-btn
       v-else
@@ -40,14 +40,14 @@
       size="16px"
       icon="menu"
       @click="toggleRightDrawer"
-      class="mobile:!block hidden text-black dark:!text-white"
+      class="hidden text-black dark:!text-white mobile:!block"
     />
     <q-drawer
       v-model="rightDrawerOpen"
       side="right"
       class="flex flex-col px-4 pt-4 dark:bg-dark-blue"
     >
-      <div class="mb-3 flex items-center gap-2">
+      <div class="mb-3 flex items-center gap-2" aria-label="Dark Mode Icon">
         <p
           @click="toggleDarkMode"
           class="font-roboto text-lg font-medium text-dark-blue dark:text-main-white"
@@ -71,7 +71,7 @@
         Contact
       </p>
     </q-drawer>
-  </div>
+  </template>
 </template>
 
 <script setup lang="ts">

@@ -7,7 +7,7 @@
       <div class="h-[1px] w-full max-w-[565px] bg-main-grey"></div>
       <div class="slide-up flex flex-col items-center">
         <h1
-          class="mobile:text-5xl mt-12 text-center font-poppins text-[75px] font-bold !leading-[140%] text-main-grey dark:text-main-white"
+          class="mt-12 text-center font-poppins text-[75px] font-bold !leading-[140%] text-main-grey dark:text-main-white mobile:text-5xl"
         >
           Say hi to
           <span class="text-main-blue"
@@ -16,24 +16,28 @@
           >
         </h1>
         <p
-          class="mobile:text-base mt-5 text-center font-roboto text-xl text-main-grey dark:text-main-white"
+          class="mt-5 text-center font-roboto text-xl text-main-grey dark:text-main-white mobile:text-base"
         >
           If you need a fullstack developer for your project contact me in the
           platforms below
         </p>
         <div
-          class="mobile:gap-3 mobile:mt-10 mt-[70px] flex items-center justify-center gap-[30px]"
+          class="mt-[70px] flex items-center justify-center gap-[30px] mobile:mt-10 mobile:gap-3"
         >
           <q-icon
             name="img:icons/contact/gmail.svg"
-            class="mobile:h-[30px] mobile:w-[30px] h-[69px] w-[69px] cursor-pointer transition-all hover:scale-110"
+            class="h-[69px] w-[69px] cursor-pointer transition-all hover:scale-110 mobile:h-[30px] mobile:w-[30px]"
             @click="sendEmail"
           />
           <div v-for="contact in filteredContacts" :key="contact.id">
-            <a :href="contact.url" target="_blank">
+            <a
+              :href="contact.url"
+              target="_blank"
+              :aria-label="`${contact.name} icon`"
+            >
               <q-icon
                 :name="`img:icons/contact/${contact.iconSrc}`"
-                class="mobile:h-[30px] mobile:w-[30px] h-[69px] w-[69px] transition-all hover:scale-110"
+                class="h-[69px] w-[69px] transition-all hover:scale-110 mobile:h-[30px] mobile:w-[30px]"
               />
             </a>
           </div>

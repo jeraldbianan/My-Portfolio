@@ -1,32 +1,32 @@
 <template>
   <footer
-    class="mobile:px-[30px] mobile:justify-center flex flex-col items-center bg-dark-grey px-[60px] py-10 dark:bg-main-white"
+    class="flex flex-col items-center bg-dark-grey px-[60px] py-10 dark:bg-main-white mobile:justify-center mobile:px-[30px]"
   >
-    <div class="mobile:items-center flex w-full max-w-container flex-col">
+    <div class="flex w-full max-w-container flex-col mobile:items-center">
       <div
-        class="tablet:flex-wrap mobile:flex-col mobile:items-center flex w-full justify-between"
+        class="flex w-full justify-between tablet:flex-wrap mobile:flex-col mobile:items-center"
       >
         <div class="flex w-[165px] flex-col">
-          <router-link to="/" class="mb-6"
-            ><q-img :src="logoSrc"
-          /></router-link>
+          <router-link to="/" class="mb-6" aria-label="Go to homepage">
+            <q-img :src="logoSrc" alt="JBianan Logo" />
+          </router-link>
           <p class="font-roboto text-sm text-main-white dark:text-dark-blue">
             Front-end Web Developer
           </p>
         </div>
 
         <div
-          class="tablet:max-w-[368px] mobile:max-w-full mobile:mt-10 mobile:justify-center mobile:gap-10 flex gap-[30px]"
+          class="flex gap-[30px] tablet:max-w-[368px] mobile:mt-10 mobile:max-w-full mobile:justify-center mobile:gap-10"
         >
           <div
-            class="mobile:flex mobile:flex-col mobile:items-center w-[168px]"
+            class="w-[168px] mobile:flex mobile:flex-col mobile:items-center"
           >
             <h3
               class="font-poppins text-lg font-medium text-main-white dark:text-dark-blue"
             >
               Projects
             </h3>
-            <div class="mobile:mt-3 mb-[10px] mt-5 flex flex-col gap-[10px]">
+            <div class="mb-[10px] mt-5 flex flex-col gap-[10px] mobile:mt-3">
               <router-link
                 v-for="project in slicedProjects"
                 :key="project.id"
@@ -43,7 +43,7 @@
             >
           </div>
           <div
-            class="mobile:flex mobile:flex-col mobile:items-center w-[168px]"
+            class="w-[168px] mobile:flex mobile:flex-col mobile:items-center"
           >
             <h3
               class="font-poppins text-lg font-medium text-main-white dark:text-dark-blue"
@@ -51,23 +51,27 @@
               Contact
             </h3>
             <p
-              class="mobile:mt-3 mt-5 cursor-pointer text-main-white hover:text-main-blue dark:text-dark-blue dark:hover:text-main-blue"
+              class="mt-5 cursor-pointer text-main-white hover:text-main-blue dark:text-dark-blue dark:hover:text-main-blue mobile:mt-3"
               @click="sendEmail"
             >
               {{ email }}
             </p>
           </div>
           <div
-            class="mobile:flex mobile:flex-col mobile:items-center w-[168px]"
+            class="w-[168px] mobile:flex mobile:flex-col mobile:items-center"
           >
             <h3
               class="font-poppins text-lg font-medium text-main-white dark:text-dark-blue"
             >
               Other Links
             </h3>
-            <div class="mobile:mt-4 mt-5 flex gap-2">
+            <div class="mt-5 flex gap-2 mobile:mt-4">
               <div v-for="contact in filteredContacts" :key="contact.id">
-                <a :href="contact.url" target="_blank">
+                <a
+                  :href="contact.url"
+                  target="_blank"
+                  :aria-label="`${contact.name} icon`"
+                >
                   <q-icon
                     :name="`img:icons/contact/${contact.iconSrc}`"
                     class="h-10 w-10 transition-all hover:scale-110"
@@ -79,7 +83,7 @@
         </div>
       </div>
       <p
-        class="mobile:mt-20 mt-[144px] font-roboto text-[13px] text-main-white/50 dark:text-dark-blue/50"
+        class="mt-[144px] font-roboto text-[13px] text-main-white/50 dark:text-dark-blue/50 mobile:mt-20"
       >
         © Copyright - Jerald Bianan
       </p>
