@@ -10,7 +10,7 @@
         :key="1"
         class="font-poppins text-[65px] font-black leading-[67.5%] text-main-white mobile:text-center mobile:text-[50px] mobile:leading-[120%]"
       >
-        I’m <span class="text-main-blue">Marvin Bianan</span>
+        I’m <span class="text-main-blue">Jerald Bianan</span>
       </h1>
 
       <p
