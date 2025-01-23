@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile:max-w-full max-w-[600px]">
+  <div class="max-w-[600px] mobile:max-w-full">
     <transition-group
       appear
       tag="div"
@@ -8,21 +8,21 @@
     >
       <h1
         :key="1"
-        class="mobile:text-center mobile:text-[50px] mobile:leading-[120%] font-poppins text-[65px] font-black leading-[67.5%] text-main-white"
+        class="font-poppins text-[65px] font-black leading-[67.5%] text-main-white mobile:text-center mobile:text-[50px] mobile:leading-[120%]"
       >
-        I’m <span class="text-main-blue">Jerald Bianan</span>
+        I’m <span class="text-main-blue">Marvin Bianan</span>
       </h1>
 
       <p
         :key="2"
-        class="mobile:text-center mobile:max-w-full mobile:text-base mt-5 max-w-[350px] font-roboto text-[26px] font-normal leading-[150%]"
+        class="mt-5 max-w-[350px] font-roboto text-[26px] font-normal leading-[150%] mobile:max-w-full mobile:text-center mobile:text-base"
       >
         Fullstack Web Developer
       </p>
       <div :key="3" class="mobile:flex mobile:justify-center">
         <q-btn
           unelevated
-          class="mobile:mt-10 mobile:h-12 mobile:text-sm mobile:max-w-[200px] mt-20 h-16 w-full max-w-[270px] bg-main-blue font-roboto text-lg font-medium normal-case transition hover:bg-main-blue/80"
+          class="mt-20 h-16 w-full max-w-[270px] bg-main-blue font-roboto text-lg font-medium normal-case transition hover:bg-main-blue/80 mobile:mt-10 mobile:h-12 mobile:max-w-[200px] mobile:text-sm"
           @click="scrollToSection('myProjects')"
         >
           View Latest Projects
